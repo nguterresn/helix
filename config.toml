@@ -48,13 +48,8 @@ S-A-up = [
 # Selection grows left or right.
 S-A-right = "extend_next_word_start"
 S-A-left  = "extend_prev_word_start"
-# Searches globally after copying selection '/'
-"*" = [
-  "move_prev_word_start",
-  "move_next_word_end",
-  "search_selection",
-  "global_search",
-]
+# Searches globally after copying selection to '/'
+"*" = ["search_selection", "global_search"]
 
 [keys.insert]
 S-A-down = [
