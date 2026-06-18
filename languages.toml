@@ -1,42 +1,92 @@
 [[language]]
 name = "typescript"
-formatter = { command = 'prettier', args = ["--parser", "typescript", "--tab-width", "2"] }
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "typescript",
+  "--tab-width",
+  "2",
+] }
 auto-format = true
 language-servers = ["typescript-language-server"]
 
 [[language]]
 name = "html"
-formatter = { command = 'prettier', args = ["--parser", "html", "--tab-width", "2"] }
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "html",
+  "--tab-width",
+  "2",
+] }
 
 [[language]]
 name = "json"
-formatter = { command = 'prettier', args = ["--parser", "json", "--tab-width", "2"] }
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "json",
+  "--tab-width",
+  "2",
+] }
 
 [[language]]
 name = "css"
-formatter = { command = 'prettier', args = ["--parser", "css", "--tab-width", "2"] }
+formatter = { command = 'prettier', args = [
+  "--parser",
+  "css",
+  "--tab-width",
+  "2",
+] }
 
 [language-server.clangd]
 command = "/opt/homebrew/opt/llvm/bin/clangd"
-args = ["--enable-config"]
+args    = ["--enable-config"]
 
 [[language]]
-name = "cpp"
+name             = "cpp"
 language-servers = ["clangd"]
-roots = [".git", "CMakeLists.txt"]
+roots            = [".git", "CMakeLists.txt"]
 
 [[language]]
-name = "c"
+name             = "c"
 language-servers = ["clangd"]
-roots = [".git", "CMakeLists.txt"]
+roots            = [".git", "CMakeLists.txt"]
 
 [[language]]
-name = "rust"
+name             = "rust"
 language-servers = ["rust-analyzer"]
-auto-format = true
+auto-format      = true
 
 [language-server.rust-analyzer.config.check]
 command = "clippy"
 
 [language-server.rust-analyzer.config.cargo]
 features = "all"
+
+[language-server.rumdl]
+command = "rumdl"
+args    = ["server"]
+
+[[language]]
+name             = "markdown"
+language-servers = ["marksman", "rumdl"]
+
+# Source: https://blog.lanzani.nl/2026/using-ty-with-the-helix-editor/
+[language-server.ty]
+command = "ty"
+args    = ["server"]
+
+[[language]]
+name             = "python"
+scope            = "source.python"
+injection-regex  = "python"
+file-types       = ["py", "pyi", "py3", "pyw", ".pythonstartup", ".pythonrc"]
+shebangs         = ["python"]
+roots            = [".", "pyproject.toml"]
+comment-token    = "#"
+language-servers = ["ty"]
+indent           = { tab-width = 4, unit = "    " }
+auto-format      = true
+
+[[language]]
+name        = "toml"
+auto-format = true
+formatter   = { command = "taplo", args = ["fmt", "-"] }

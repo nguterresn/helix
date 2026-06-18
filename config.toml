@@ -1,7 +1,7 @@
 theme = "ntheme"
 
 [editor.auto-save]
-focus-lost = true
+focus-lost         = true
 after-delay.enable = true
 
 [editor.statusline]
@@ -10,18 +10,18 @@ mode.insert = "INSERT"
 mode.select = "SELECT"
 
 [editor.soft-wrap]
-enable = true
-max-wrap = 25 # increase value to reduce forced mid-word wrapping
+enable            = true
+max-wrap          = 25   # increase value to reduce forced mid-word wrapping
 max-indent-retain = 0
-wrap-indicator = ""  # set wrap-indicator to "" to hide it
+wrap-indicator    = ""   # set wrap-indicator to "" to hide it
 
 [editor.cursor-shape]
 normal = "bar"
 
 [keys.normal]
 C-g = [
-    ":write-all",
-    ":insert-output lazygit >/dev/tty",
-    ":redraw",
-    ":reload-all"
+  ":write-all",
+  ":insert-output lazygit >/dev/tty",
+  ":redraw",
+  ":reload-all",
 ]
