@@ -1,0 +1,15 @@
+inherits = "dark_plus"
+
+"type.builtin" = "blue2"
+"constant" = "blue2"
+"type.enum.variant" = "blue2"
+"constant.character.escape" = "blue2"
+
+"function.builtin" = "blue2"
+"function.method" = "fn_declaration"
+"function.macro" = "blue2"
+"function.special" = "blue2"
+
+# Here's a comment.
+"comment" = { fg = "#FF5000", modifiers = ["bold"] }
+

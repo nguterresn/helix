@@ -1,0 +1,42 @@
+[[language]]
+name = "typescript"
+formatter = { command = 'prettier', args = ["--parser", "typescript", "--tab-width", "2"] }
+auto-format = true
+language-servers = ["typescript-language-server"]
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html", "--tab-width", "2"] }
+
+[[language]]
+name = "json"
+formatter = { command = 'prettier', args = ["--parser", "json", "--tab-width", "2"] }
+
+[[language]]
+name = "css"
+formatter = { command = 'prettier', args = ["--parser", "css", "--tab-width", "2"] }
+
+[language-server.clangd]
+command = "/opt/homebrew/opt/llvm/bin/clangd"
+args = ["--enable-config"]
+
+[[language]]
+name = "cpp"
+language-servers = ["clangd"]
+roots = [".git", "CMakeLists.txt"]
+
+[[language]]
+name = "c"
+language-servers = ["clangd"]
+roots = [".git", "CMakeLists.txt"]
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+auto-format = true
+
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
